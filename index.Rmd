@@ -1,6 +1,6 @@
 ---
 title: "IODS course project"
-author: "Angela Martin"
+author: "Angela Katherine Martin Vivanco"
 output:
   html_document:
     theme: cosmo
