@@ -1,13 +1,28 @@
+---
+output: html_document
+---
 
-# About the project
+# **About the project**
 
-*Write a short description about the course and add a link to your GitHub repository here. This is an R Markdown (.Rmd) file so you should use R Markdown syntax.*
+*We want to use the RStudio interface to control git. I created a RStudio Project, wrote stuff and I hope I'll add some nice stat graphs :). *
+
+## This course looks very interesting. But, I'm really worried now because my laptop broke down since friday. I hope I can recover my data.
+
+https://github.com/ANKAMAVI
 
 ```{r}
 # This is a so-called "R chunk" where you can write R code.
-
 date()
 
 ```
-The text continues here.
 
+ “There is a pleasure in the pathless woods,          
+There is a rapture on the lonely shore,       
+There is society, where none intrudes,        
+By the deep Sea, and music in its roar:      
+I love not Man the less, but Nature more,       
+From these our interviews, in which I steal         
+From all I may be, or have been before,  
+To mingle with the Universe, and feel       
+What I can ne’er express, yet cannot all conceal.”    
+by _Lord Byron_
