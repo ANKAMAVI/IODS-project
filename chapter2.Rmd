@@ -1,4 +1,7 @@
-# Insert chapter 2 title here
+# **1. Regression and model validation**
+# ====================================
+# Data wrangling
+first session: creating a data set.
 
 *Describe the work you have done this week and summarize your learning.*
 
