@@ -441,7 +441,9 @@ summary {
 </ul></li>
 <li><a href="#regression-and-model-validation"><strong>1. Regression and model validation</strong></a></li>
 <li><a href="#section">====================================</a></li>
-<li><a href="#data-wrangling">Data wrangling</a></li>
+<li><a href="#data-wrangling"><em>Data wrangling</em></a><ul>
+<li><a href="#data-analysis"><em>Data analysis</em></a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -458,7 +460,7 @@ summary {
 <p><a href="https://github.com/ANKAMAVI" class="uri">https://github.com/ANKAMAVI</a></p>
 <pre class="r"><code># This is a so-called &quot;R chunk&quot; where you can write R code.
 date()</code></pre>
-<pre><code>## [1] &quot;Wed Nov 04 07:57:11 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Wed Nov 04 09:28:21 2020&quot;</code></pre>
 <p>“There is a pleasure in the pathless woods,<br />
 There is a rapture on the lonely shore,<br />
 There is society, where none intrudes,<br />
@@ -479,19 +481,32 @@ by <em>Lord Byron</em></p>
 <h1>====================================</h1>
 </div>
 <div id="data-wrangling" class="section level1">
-<h1>Data wrangling</h1>
+<h1><em>Data wrangling</em></h1>
 <p>first session: creating a data set.</p>
-<p><em>Describe the work you have done this week and summarize your learning.</em></p>
+<div id="data-analysis" class="section level2">
+<h2><em>Data analysis</em></h2>
+<p>dataset structure</p>
 <ul>
 <li>Describe your work and results clearly.</li>
 <li>Assume the reader has an introductory course level understanding of writing and reading R code as well as statistical methods.</li>
 <li>Assume the reader has no previous knowledge of your data or the more advanced methods you are using.</li>
 </ul>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Wed Nov 04 07:57:12 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Wed Nov 04 09:28:21 2020&quot;</code></pre>
+<pre class="r"><code>data&lt;-read.csv(&quot;learning2014.csv&quot;)
+str(data)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    166 obs. of  7 variables:
+##  $ gender  : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 1 2 2 1 2 1 2 1 ...
+##  $ Age     : int  53 55 49 53 49 38 50 37 37 42 ...
+##  $ attitude: num  3.7 3.1 2.5 3.5 3.7 3.8 3.5 2.9 3.8 2.1 ...
+##  $ deep    : num  3.58 2.92 3.5 3.5 3.67 ...
+##  $ stra    : num  3.38 2.75 3.62 3.12 3.62 ...
+##  $ surf    : num  2.58 3.17 2.25 2.25 2.83 ...
+##  $ Points  : int  25 12 24 10 22 21 21 31 24 26 ...</code></pre>
 <p>Here we go again…</p>
 <hr />
 <p>(more chapters to be added similarly as we proceed with the course!)</p>
+</div>
 </div>
 
 

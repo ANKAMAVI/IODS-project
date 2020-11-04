@@ -59,5 +59,5 @@ learning2014 <- filter(learning2014a, Points > 0)
 str(learning2014)
 
 
-write.csv(learning2014, file = "learning2014.csv")
+write.csv(learning2014, , row.names = F, file = "learning2014.csv")
 data<-read.csv("learning2014.csv")
