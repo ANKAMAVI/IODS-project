@@ -59,5 +59,38 @@ learning2014 <- filter(learning2014a, Points > 0)
 str(learning2014)
 
 
-write.csv(learning2014, , row.names = F, file = "learning2014.csv")
+write.csv(learning2014, row.names = F, file = "learning2014.csv")
 data<-read.csv("learning2014.csv")
+
+
+## Variables (mean and range)- (3p)    
+
+# draw a scatter plot matrix of the variables in learning2014.
+# [-1] excludes the first column (gender)
+pairs(learning2014[-1])
+
+# access the GGally and ggplot2 libraries
+library(GGally)
+library(ggplot2)
+
+# create a more advanced plot matrix with ggpairs()
+p <- ggpairs(learning2014, mapping = aes(), lower = list(combo = wrap("facethist", bins = 20)))
+p
+
+qplot(gender, data = data)
+summary (data)
+
+
+## LINNEAR REGRESSION MODEL
+
+mod1<-lm(Points~Age+attitude+deep+surf+stra+gender, data=data)
+summary(mod1)
+
+mod2<-lm(Points~Age+attitude+stra, data=data)
+summary(mod2)
+
+##VALIDATION
+#  Diagnostic plots of the model: Residuals vs Fitted values, Normal QQ-plot and Residuals vs Leverage
+
+par(mfrow=c(2,2))
+plot(mod2) 

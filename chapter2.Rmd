@@ -1,22 +1,80 @@
-# **1. Regression and model validation**
-# ====================================
-# _Data wrangling_   
-  first session: creating a data set.       
+# 1. Regression and model validation
+# ====================================   
+# 
+# ───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───
+# ───█▒▒░░░░░░░░░▒▒█───
+# ────█░░█░░░░░█░░█────
+# ─▄▄──█░░░▀█▀░░░█──▄▄─
+# █░░█─▀▄░░░░░░░▄▀─█░░█
+# 
+#1.1  _Data wrangling (5p)_   
+first session: creating a data set.       
+data source: survey of Approaches to Learning...
+
+Kimmo Vehkalahti: ASSIST 2014 - Phase 3 (end of Part 2), N=183
+Course: Johdatus yhteiskuntatilastotieteeseen, syksy 2014 (Introduction to Social Statistics, fall 2014 - in Finnish),
+international survey of Approaches to Learning, made possible by Teachers' Academy funding for KV in 2013-2015.
  
-## _Data analysis_       
-  dataset structure        
-
-
-
-
-- Describe your work and results clearly. 
-- Assume the reader has an introductory course level understanding of writing and reading R code as well as statistical methods.
-- Assume the reader has no previous knowledge of your data or the more advanced methods you are using.
+#1.2 _Data analysis (2p)_       
+  Dataset structure: 7 variables and 166 observations    
+  Several questions were asked in the survey, three learning approaches resulted from the combination of similar questions (deep, surfing and strategical approach).
 
 ```{r}
-date()
 data<-read.csv("learning2014.csv")
 str(data)
 ```
 
-Here we go again...
+
+## Variables (mean and range) - (3p)    
+   
+Gender: 110 are female (F) and 56 are men(M)      
+Age: from 17 to 55 years old (25 is the mean)      
+Attitude: 3.2 (1.4-5)      
+Deep: 3.68 (1.583-4.917)      
+Strategy: 3.121 (1.250 - 5)      
+Surfing: 2.787 (1.583-4.333)      
+Points: 22.72 (7 - 33)      
+
+```{r}
+
+library(GGally)
+library(ggplot2)
+
+ggpairs(data, mapping = aes(colour=gender), legend = 1,
+        title="Fig.1 Variables overview",
+        lower = list(combo = wrap("facethist",size=0.1, bins = 20, alpha=0.3)))+
+        theme(legend.position="bottom")
+```
+ 
+Age of the participants, deep learning approach and the points obtained in the final test are non-normal distributed (Fig.1).
+
+## Choosing three variables as explanatory variables (4p + 3p) 
+ LINNEAR REGRESSION MODEL
+
+```{r}
+mod1<-lm(Points~Age+attitude+deep+surf+stra+gender, data=data)
+summary(mod1)
+
+```
+attitude, age and strategy are the most relevant variables
+```{r}
+mod2<-lm(Points~Age+attitude+stra, data=data)
+summary(mod2)
+
+```
+The equation obtained is:      
+points=10.89 + 3.48*attitude + 1*strategy approach - 0.08*age (+ or - 5.26)     
+
+With 20.3% of accuracy we can calculate the obtained points in the final evaluation by the equation showed in model 2 (mod2), Attitude is the most important variable to get more points. The importance of this model is based on the fact that we can explain and detect the most significant variables in the learning process rather than predict the points.    
+
+## Diagnostic plots of the model (3p)
+
+```{r}
+#Residuals vs Fitted values, Normal QQ-plot and Residuals vs Leverage
+par(mfrow=c(2,2))
+plot(mod2)
+
+```
+
+The graphs are not fancy but important, it shows that the accuracy reported in the model is trustworthy.
+
