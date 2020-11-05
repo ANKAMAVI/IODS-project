@@ -4,13 +4,9 @@ output: html_document
 
 # **About the project**
 
-*We want to use the RStudio interface to control git. I created a RStudio Project, wrote stuff and I hope I'll add some nice stat graphs :). *
+*We want to use the RStudio interface to control git. I created a RStudio Project, I wrote stuff and I hope I'll add some nice stat graphs :). *
 
-## This course looks very interesting. But, I'm really worried now because my laptop broke down since friday. I hope I can recover my data.
-
-REPOSITORY:
-
-https://github.com/ANKAMAVI
+_This course looks very interesting. But, I'm really worried now because my laptop broke down since friday. I hope I can recover my data._
 
 ```{r}
 # This is a so-called "R chunk" where you can write R code.
@@ -18,7 +14,14 @@ date()
 
 ```
 
- “There is a pleasure in the pathless woods,          
+*update: one week later, the pc from my work is working, I recovered my data, but I do not trust it anymore :(
+
+
+REPOSITORY:
+
+https://github.com/ANKAMAVI    
+
+“There is a pleasure in the pathless woods,          
 There is a rapture on the lonely shore,       
 There is society, where none intrudes,        
 By the deep Sea, and music in its roar:      

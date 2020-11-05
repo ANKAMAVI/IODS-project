@@ -1,13 +1,6 @@
-# 1. Regression and model validation
-# ====================================   
-# 
-# ───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───
-# ───█▒▒░░░░░░░░░▒▒█───
-# ────█░░█░░░░░█░░█────
-# ─▄▄──█░░░▀█▀░░░█──▄▄─
-# █░░█─▀▄░░░░░░░▄▀─█░░█
-# 
-#1.1  _Data wrangling (5p)_   
+# **1. Regression and model validation**
+
+## 1.1  _Data wrangling (5p)_   
 first session: creating a data set.       
 data source: survey of Approaches to Learning...
 
@@ -15,7 +8,7 @@ Kimmo Vehkalahti: ASSIST 2014 - Phase 3 (end of Part 2), N=183
 Course: Johdatus yhteiskuntatilastotieteeseen, syksy 2014 (Introduction to Social Statistics, fall 2014 - in Finnish),
 international survey of Approaches to Learning, made possible by Teachers' Academy funding for KV in 2013-2015.
  
-#1.2 _Data analysis (2p)_       
+## 1.2 _Data analysis (2p)_       
   Dataset structure: 7 variables and 166 observations    
   Several questions were asked in the survey, three learning approaches resulted from the combination of similar questions (deep, surfing and strategical approach).
 
@@ -25,7 +18,7 @@ str(data)
 ```
 
 
-## Variables (mean and range) - (3p)    
+## a) Variables (mean and range) - (3p)    
    
 Gender: 110 are female (F) and 56 are men(M)      
 Age: from 17 to 55 years old (25 is the mean)      
@@ -48,7 +41,7 @@ ggpairs(data, mapping = aes(colour=gender), legend = 1,
  
 Age of the participants, deep learning approach and the points obtained in the final test are non-normal distributed (Fig.1).
 
-## Choosing three variables as explanatory variables (4p + 3p) 
+## b) Choosing three variables as explanatory variables (4p + 3p) 
  LINNEAR REGRESSION MODEL
 
 ```{r}
@@ -67,7 +60,7 @@ points=10.89 + 3.48*attitude + 1*strategy approach - 0.08*age (+ or - 5.26)
 
 With 20.3% of accuracy we can calculate the obtained points in the final evaluation by the equation showed in model 2 (mod2), Attitude is the most important variable to get more points. The importance of this model is based on the fact that we can explain and detect the most significant variables in the learning process rather than predict the points.    
 
-## Diagnostic plots of the model (3p)
+## c) Diagnostic plots of the model (3p)
 
 ```{r}
 #Residuals vs Fitted values, Normal QQ-plot and Residuals vs Leverage
