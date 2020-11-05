@@ -1,6 +1,6 @@
 ---
-title: "IODS course project"
-author: "Angela Katherine Martin Vivanco"
+title: "Intro Open Data Sci course - Nice project"
+author: "ANgela KAtherine MArtin VIvanco"
 output:
   html_document:
     theme: cosmo

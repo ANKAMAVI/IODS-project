@@ -1,5 +1,3 @@
-# 1. Regression and model validation
-# ====================================   
 # 
 # ───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───
 # ───█▒▒░░░░░░░░░▒▒█───
@@ -7,6 +5,8 @@
 # ─▄▄──█░░░▀█▀░░░█──▄▄─
 # █░░█─▀▄░░░░░░░▄▀─█░░█
 # 
+# 1. Regression and model validation
+
 #1.1  _Data wrangling (5p)_   
 first session: creating a data set.       
 data source: survey of Approaches to Learning...
