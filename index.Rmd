@@ -1,5 +1,5 @@
 ---
-title: "Intro Open Data Sci course - Nice project"
+title: "Intro Open Data Science course - Nice project"
 author: "ANgela KAtherine MArtin VIvanco"
 output:
   html_document:
