@@ -1,6 +1,15 @@
+
 # **1. Regression and model validation**
 
-## 1.1  _Data wrangling (5p)_   
+───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───   
+───█▒▒░░░░░░░░░▒▒█───   
+────█░░█░░░░░█░░█────   
+─▄▄──█░░░▀█▀░░░█──▄▄─   
+█░░█─▀▄░░░░░░░▄▀─█░░█    
+
+
+#1.1  _Data wrangling (5p)_   
+
 first session: creating a data set.       
 data source: survey of Approaches to Learning...
 
@@ -10,7 +19,7 @@ international survey of Approaches to Learning, made possible by Teachers' Acade
  
 ## 1.2 _Data analysis (2p)_       
   Dataset structure: 7 variables and 166 observations    
-  Several questions were asked in the survey, three learning approaches resulted from the combination of similar questions (deep, surfing and strategical approach).
+  Several questions were asked in the survey, three learning approaches resulted from the combination of similar questions (deep,     surfing and strategical approach).
 
 ```{r}
 data<-read.csv("learning2014.csv")
