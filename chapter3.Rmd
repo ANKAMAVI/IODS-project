@@ -1,0 +1,34 @@
+# **2. Logistic Regression**
+
+This data approach student achievement in secondary education of two Portuguese schools. The data attributes include student grades, demographic, social and school related features) and it was collected by using school reports and questionnaires. Two datasets are provided regarding the performance in two distinct subjects: Mathematics (mat) and Portuguese language (por). 
+more information: https://archive.ics.uci.edu/ml/datasets/Student+Performance
+
+# 2.1  _Data wrangling (5p)_     
+
+The joined data set used in the analysis  exercise combines the two student alcohol consumption data sets. The following adjustments have been made:   
+The variables not used for joining the two data have been combined by averaging (including the grade variables)
+    'alc_use' is the average of 'Dalc' (diary) and 'Walc' (week end consumption)
+    'high_use' is TRUE if 'alc_use' is higher than 2 and FALSE otherwise   
+
+```{r}
+library(openxlsx)
+pormath<-read.xlsx ("pormath.xlsx")
+str(pormath)
+
+```
+# 1.2 _Data analysis _  
+
+## a) Relationships between high/low alcohol consumption and some of the other variables in the data.
+```{r}
+#classmate's script:
+library(tidyr); library(dplyr); library(ggplot2); library(gridExtra); library(readr)
+alc <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_2218/datasets/alc.txt")
+data <- mutate(alc, ID = row_number()) %>%
+  select(any_of(c("ID", "high_use", "absences", "health", "freetime", "famrel")))
+p1 <- ggplot(data, aes(absences)) + stat_count(geom="line", aes(colour=high_use) )
+p2 <- ggplot(data, aes(health)) + geom_bar(aes(fill=high_use), position="dodge")
+p3 <- ggplot(data, aes(freetime)) + geom_bar(aes(fill=high_use), position="dodge")
+p4 <- ggplot(data, aes(famrel)) + geom_bar(aes(fill=high_use), position="dodge")
+grid.arrange(p1, p2, p3, p4, nrow=2, ncol=2)
+
+```
