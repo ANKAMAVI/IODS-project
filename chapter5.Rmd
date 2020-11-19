@@ -1,0 +1,11 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# *4. Dimensionality reduction techniques - week 5*
+```{r}
+date()
+```
+
