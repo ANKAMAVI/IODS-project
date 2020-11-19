@@ -3,7 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-# *3. Clustering and classification - week 4*
+#  **3. Clustering and classification - week 4**
 ```{r}
 date()
 ```
@@ -100,7 +100,7 @@ lda.arrows(lda.fit, myscale = 3)
 
 ```
 
-The plot shows that there are more crimes in areas with close access to the highway and in the residential zones, as showed in the correlation matrix.
+The plot shows that there are more crimes in areas with close access to the highway and in the residential zones, as showed in the correlation matrix.   
 
 ```{r}
 correct_classes<-test$crime
@@ -109,11 +109,11 @@ lda.pred <- predict(lda.fit, newdata = test) #Test=the rest=20%
 table(correct = correct_classes, predicted = lda.pred$class)
 ```
 
-Similar to the LDA, more crimes are expected in high and low class neighbourhoods.
+Similar to the LDA, more crimes are expected in high and low class neighbourhoods.   
 
 ## K-means and clustering data. 
 
-The optimal number of clusters is -> 2
+The optimal number of clusters is -> 2   
 ```{r}
 data("Boston")
 boston_scaled <- as.data.frame(scale(Boston))
@@ -126,7 +126,7 @@ twcss <- sapply(1:k_max, function(k){kmeans(Boston, k)$tot.withinss})# calculate
 qplot(x = 1:k_max, y = twcss, geom = 'line')
 ```
 
-Visualization of the clusters per variable:
+Visualization of the clusters per variable:  
 ```{r, out.width="150%"}
 km <-kmeans(boston_scaled, centers = 2)
 ggpairs(boston_scaled, mapping = aes(colour=as.factor(km$cluster)), legend = 1,
@@ -137,7 +137,7 @@ ggpairs(boston_scaled, mapping = aes(colour=as.factor(km$cluster)), legend = 1,
 ```
 
 
-## K-means and clustering data - BONUS.
+## K-means and clustering data - BONUS.  
 ```{r}
 km2 <-kmeans(boston_scaled, centers= 3)
 boston_scaled$km_cluster<-km2$cluster
@@ -146,18 +146,19 @@ lda.fit2 <- lda(km_cluster ~ ., data = boston_scaled)# linear discriminant analy
 lda.fit2
 ```
 
-lda biplot
+lda biplot   
 ```{r}
 classes <- as.numeric(boston_scaled$km_cluster)# target classes as numeric
 plot(lda.fit2, dimen = 2, col = classes, pch = classes)# plot the lda results
 lda.arrows(lda.fit, myscale = 3)
 ```
+   
 There differences between the clusters, cluster 3 is better explain by rad and tax variables, while cluster one by age.
 
 
-## ON SALE-> SUPER BONUS.
+## ON SALE-> SUPER BONUS.   
 
-creating K-means for the training data color by crime insidence
+creating K-means for the training data color by crime insidence   
 
 ```{r}
 
@@ -168,7 +169,7 @@ plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3,
         color=train$crime, type= 'scatter3d', mode='markers') 
 ```
 
-Creation of 2 clusters:
+Creation of 2 clusters:   
 
 ```{r}
 data("Boston")
@@ -181,7 +182,7 @@ plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3,
         color=as.factor(km3$cluster), type= 'scatter3d', mode='markers')
 ```
 
-Creation of 3 clusters:
+Creation of 3 clusters:   
 
 ```{r}
 data("Boston")
