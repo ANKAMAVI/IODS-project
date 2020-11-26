@@ -1,3 +1,8 @@
+  # *3. Clustering and classification - week 4*
+
+date()
+
+
 library(MASS)
 library(corrplot)
 library(ggplot2)
@@ -122,34 +127,76 @@ lda.arrows(lda.fit, myscale = 3)
 
 ## SUUUUPER BONUS.
 
+## ON SALE-> SUPER BONUS.
+
+#creating K-means for the training data color by crime insidence
 model_predictors <- dplyr::select(train, -crime)
-
-# check the dimensions
-dim(model_predictors)
-dim(lda.fit$scaling)
-
-# matrix multiplication
-matrix_product <- as.matrix(model_predictors) %*% lda.fit$scaling
-matrix_product <- as.data.frame(matrix_product)
-
-#Next, install and access the plotly package. Create a 3D plot (Cool!) of the columns of the matrix product by typing the code below.
-library(plotly)
+matrix_product <- as.matrix(model_predictors) %*% lda.fit$scaling # matrix multiplication
+matrix_product <- as.data.frame(matrix_product)# matrix multiplication
 plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, 
-        color=train$crime, type= 'scatter3d', mode='markers')  
+        color=train$crime, type= 'scatter3d', mode='markers') 
 
-#creating K-means for the training data
+
+#Creation of 3 clusters:
 data("Boston")
 boston_scaled <- as.data.frame(scale(Boston))
 ncol <- nrow(boston_scaled)
 ind <- sample(ncol,  size = n * 0.8)
 train <- boston_scaled[ind,]
 km3 <-kmeans(train, centers= 3)
-train$km_cluster<-km3$cluster
+plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, 
+        color=as.factor(km3$cluster), type= 'scatter3d', mode='markers')
 
-# plot the lda results
+
+
+#Creation of 2 clusters:
+data("Boston")
+boston_scaled <- as.data.frame(scale(Boston))
+ncol <- nrow(boston_scaled)
+ind <- sample(ncol,  size = n * 0.8)
+train <- boston_scaled[ind,]
+km4 <-kmeans(train, centers= 2)
+plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, 
+        color=as.factor(km4$cluster), type= 'scatter3d', mode='markers')
+
+
+#===========from here no good=============
+#Creation of 3 clusters:
+  
+data("Boston")
+model_predictors <- dplyr::select(train, -crime)
+matrix_product <- as.matrix(model_predictors) %*% lda.fit$scaling# matrix multiplication
+matrix_product <- as.data.frame(matrix_product)# matrix multiplication
+boston_scaled <- as.data.frame(scale(Boston))
+ncol <- nrow(boston_scaled)
+ind <- sample(ncol,  size = n * 0.8)
+train <- boston_scaled[ind,]
+km3 <-kmeans(train, centers= 3)
+train$km_cluster<-km3$cluster
 plot(lda.fit, dimen = 2, col = classes, pch = classes)
 lda.arrows(lda.fit, myscale = 2)
 
 
 plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, 
         color=as.factor(km3$cluster), type= 'scatter3d', mode='markers')  
+
+#Creation of 2 clusters:
+  
+
+data("Boston")
+boston_scaled <- as.data.frame(scale(Boston))
+ncol <- nrow(boston_scaled)
+ind <- sample(ncol,  size = n * 0.8)
+train <- boston_scaled[ind,]
+km4 <-kmeans(train, centers= 2)
+train$km_cluster<-km4$cluster
+plot(lda.fit, dimen = 2, col = classes, pch = classes)
+lda.arrows(lda.fit, myscale = 2)
+
+
+plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, 
+        color=as.factor(km4$cluster), type= 'scatter3d', mode='markers')  
+
+
+
+
