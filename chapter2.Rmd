@@ -38,10 +38,8 @@ Surfing: 2.787 (1.583-4.333)
 Points: 22.72 (7 - 33)      
 
 ```{r}
-
 library(GGally)
 library(ggplot2)
-
 ggpairs(data, mapping = aes(colour=gender), legend = 1,
         title="Fig.1 Variables overview",
         lower = list(combo = wrap("facethist",size=0.1, bins = 20, alpha=0.3)))+
