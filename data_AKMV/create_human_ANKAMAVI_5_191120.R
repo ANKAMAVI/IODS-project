@@ -95,8 +95,11 @@ data(tea)
 str(tea)
 keep_columns <- c("Tea", "How", "how", "sugar", "where", "lunch")
 
-tea_time <- select(tea, one_of(keep_columns))
-str(tea_time)
+tea_time2 <- select(tea, one_of(keep_columns))
+
+tea_time2 <- select(tea, matches(keep_columns))
+                    
+str(tea_time2)
 write.csv(tea_time, "tea_time.csv")
 
 tea_time <- read.csv("~/GitHub/IODS-project/IODS-project/data_AKMV/tea_time.csv")
@@ -113,6 +116,27 @@ mca <- MCA(tea_time, graph = TRUE)
 summary(mca)
 plot(mca, invisible=c("ind"), habillage = "quali")
 plot(mca,repel=TRUE, habillage = "quali")
+
+fviz_mca_var(mca, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal())
+
+fviz_contrib(mca, choice = "var", axes = 1, top = 15)
+
+
+
+################################26
+tea_time3 <- dplyr::select(tea, one_of(keep_columns))
+
+gather(tea_time3) %>% ggplot(aes(value)) + 
+  facet_wrap("key", scales = "free") + geom_bar() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
+
+mca <- MCA(tea_time3, graph = TRUE)
+summary(mca)
+#plot(mca, invisible=c("ind"), habillage = "quali")
+#plot(mca,repel=TRUE, habillage = "quali")
 
 fviz_mca_var(mca, col.var = "cos2",
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
