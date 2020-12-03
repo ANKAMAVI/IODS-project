@@ -20,7 +20,7 @@ library(MASS)
 ```{r}
 date()
 ```
-# 4.1  _Data overview _   
+# 5.1  _Data overview _   
 
 Description of the datasets variables      
 
@@ -34,3 +34,22 @@ str(BPRS)
 rats <- read_table2("https://raw.githubusercontent.com/KimmoVehkalahti/MABS/master/Examples/data/rats.txt")
 str(rats)
 ```
+
+
+```{r}
+
+#transformation BPRS -> weeks
+BPRS$treatment <- factor(BPRS$treatment)
+BPRS$subject <- factor(BPRS$subject)
+#.....
+BPRSL <-  BPRS %>% gather(key = weeks, value = bprs, -treatment, -subject)
+BPRSL <-  BPRSL %>% mutate(week = as.integer(substr(weeks,5,5)))
+glimpse(BPRSL)
+ggplot(BPRSL, aes(x = week, y = bprs, linetype = subject)) +
+  geom_line() +
+  scale_linetype_manual(values = rep(1:10, times=4)) +
+  facet_grid(. ~ treatment, labeller = label_both) +
+  theme(legend.position = "none") + 
+  scale_y_continuous(limits = c(min(BPRSL$bprs), max(BPRSL$bprs)))
+```
+
