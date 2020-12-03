@@ -1,0 +1,36 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(readr)
+library(dplyr)
+library(corrplot)
+library(GGally)
+library(FactoMineR)
+library(factoextra)
+library(ggplot2)
+library(tidyr)
+library(MASS)
+```
+
+# **5. Analysis of longitudinal data - week 6**
+```{r}
+date()
+```
+# 4.1  _Data overview _   
+
+Description of the datasets variables      
+
+```{r}
+
+BPRS <- read_table2("https://raw.githubusercontent.com/KimmoVehkalahti/MABS/master/Examples/data/BPRS.txt")
+str(BPRS)
+```
+
+```{r}
+rats <- read_table2("https://raw.githubusercontent.com/KimmoVehkalahti/MABS/master/Examples/data/rats.txt")
+str(rats)
+```

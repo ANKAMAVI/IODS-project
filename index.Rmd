@@ -43,7 +43,12 @@ output:
 # This will include Chapter 1 (that is updated in its own file) in the document.
 ```
  
- 
+***
+
+```{r child = "chapter6.Rmd"}
+# This will include Chapter 1 (that is updated in its own file) in the document.
+```
+  
  
  
   
