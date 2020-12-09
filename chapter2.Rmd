@@ -22,7 +22,8 @@ international survey of Approaches to Learning, made possible by Teachers' Acade
   Several questions were asked in the survey, three learning approaches resulted from the combination of similar questions (deep,     surfing and strategical approach).
 
 ```{r}
-data<-read.csv("learning2014.csv")
+data <-learning2014 <- read.csv("~/GitHub/IODS-project/IODS-project/data_AKMV/learning2014.csv")
+#data<-read.csv("learning2014.csv")
 str(data)
 ```
 

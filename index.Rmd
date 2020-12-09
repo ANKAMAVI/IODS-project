@@ -20,33 +20,31 @@ output:
 ```
   
 ***
-  
-#```{r child = "chapter2.Rmd"}
+
+```{r child = "chapter2.Rmd"}
 # This will include Chapter 2 (that is updated in its own file) in the document.
-#```
+```
 
 ***
+```{r child = "chapter3.Rmd"}
+# This will include Chapter 3 (that is updated in its own file) in the document.
+```
 
-#```{r child = "chapter3.Rmd"}
-# This will include Chapter 1 (that is updated in its own file) in the document.
-#```
-  
 ***
+```{r child = "chapter4.Rmd"}
+# This will include Chapter 4 (that is updated in its own file) in the document.
+```
 
-#```{r child = "chapter4.Rmd"}
-# This will include Chapter 1 (that is updated in its own file) in the document.
-#```
- 
 ***
 
 ```{r child = "chapter5.Rmd"}
-# This will include Chapter 1 (that is updated in its own file) in the document.
+# This will include Chapter 5 (that is updated in its own file) in the document.
 ```
  
 ***
 
 ```{r child = "chapter6.Rmd"}
-# This will include Chapter 1 (that is updated in its own file) in the document.
+# This will include Chapter 6 (that is updated in its own file) in the document.
 ```
   
  

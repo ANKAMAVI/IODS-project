@@ -11,8 +11,8 @@ The variables not used for joining the two data have been combined by averaging 
     'high_use' is TRUE if 'alc_use' is higher than 2 and FALSE otherwise   
 
 ```{r}
-library(openxlsx)
-pormath<-read.xlsx ("pormath.xlsx")
+library(readxl)
+pormath <- read_excel("data_AKMV/pormath.xlsx")
 str(pormath)
 
 ```
